@@ -22,7 +22,6 @@ public abstract class AbstractMapping {
 
     public File mappingsFile;
     public MappingsReader officialToNamed;
-    public MappingsReader namedToOfficial;
 
     public AbstractMapping(String name, String adress, boolean compression){
         this.name = name;
@@ -36,8 +35,6 @@ public abstract class AbstractMapping {
 
     public abstract String getNamedClassFromObf(String obf) throws IOException;
     public abstract String getNamedFieldFromObf(String clazz,String obf) throws IOException;
-    public abstract String getObfFieldFromNamed(String clazz, String named) throws IOException;
-    public abstract String getObfClassFromNamed(String named) throws IOException;
 
     public abstract String convert(AbstractMapping toConvertTo,String in, String out) throws IOException;
 
@@ -45,7 +42,6 @@ public abstract class AbstractMapping {
         this.mappingsFile = file;
         try {
             this.officialToNamed = TinyMappingFormat.DETECT.createReader(this.mappingsFile.toPath(), "official", "named");
-            this.namedToOfficial = TinyMappingFormat.DETECT.createReader(this.mappingsFile.toPath(), "named", "official");
         } catch (IOException e) {
             e.printStackTrace();
         }

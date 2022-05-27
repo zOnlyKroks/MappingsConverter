@@ -77,18 +77,4 @@ public class YarnMapping extends AbstractMapping {
         Optional<FieldMapping> fieldMapping = classMapping.getFieldMapping(obf);
         return fieldMapping.orElseThrow().getFullDeobfuscatedName();
     }
-
-    @Override
-    public String getObfFieldFromNamed(String clazz, String named) throws IOException {
-        MappingSet mappingSet = getNamedToOfficial().read();
-        ClassMapping classMapping = mappingSet.getClassMapping(clazz).orElseThrow();
-        Optional<FieldMapping> fieldMapping = classMapping.getFieldMapping(named);
-        return fieldMapping.orElseThrow().getFullObfuscatedName();
-    }
-
-    @Override
-    public String getObfClassFromNamed(String named) throws IOException {
-        MappingSet mappingSet = getNamedToOfficial().read();
-        return mappingSet.getClassMapping(named).orElseThrow().getFullObfuscatedName();
-    }
 }

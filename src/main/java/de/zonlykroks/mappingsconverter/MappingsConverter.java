@@ -77,6 +77,8 @@ public class MappingsConverter {
                 }
             }
         });
+
+        test();
     }
 
     public static File createAndMoveFile(File fileToMove) throws IOException {
@@ -87,6 +89,23 @@ public class MappingsConverter {
         FileUtils.moveFile(fileToMove,newFile);
         fileToMove.delete();
         return newFile;
+    }
+
+    public static void test() {
+        supportedMappings.forEach(abstractMapping -> {
+            try {
+                if(!(abstractMapping instanceof YarnMapping)) return;
+
+                YarnMapping mapping = (YarnMapping) abstractMapping;
+
+                MappingSet mappingSet = mapping.getOfficialToNamed().read();
+
+                String map = mappingSet.getClassMapping("net/minecraft/util/math/MathConstants").orElseThrow().getFullObfuscatedName();
+                System.out.println(map);
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 
 }

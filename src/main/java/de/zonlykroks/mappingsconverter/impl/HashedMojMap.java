@@ -48,20 +48,6 @@ public class HashedMojMap extends AbstractMapping {
     }
 
     @Override
-    public String getObfFieldFromNamed(String clazz, String named) throws IOException {
-        MappingSet mappingSet = getNamedToOfficial().read();
-        ClassMapping classMapping = mappingSet.getClassMapping(clazz).orElseThrow();
-        Optional<FieldMapping> fieldMapping = classMapping.getFieldMapping(named);
-        return fieldMapping.orElseThrow().getFullObfuscatedName();
-    }
-
-    @Override
-    public String getObfClassFromNamed(String named) throws IOException {
-        MappingSet mappingSet = getNamedToOfficial().read();
-        return mappingSet.getClassMapping(named).orElseThrow().getFullObfuscatedName();
-    }
-
-    @Override
     public String convert(AbstractMapping toConvertTo,String in, String out) throws IOException {
         return null;
     }
@@ -71,7 +57,6 @@ public class HashedMojMap extends AbstractMapping {
         this.mappingsFile = file;
         try{
             this.officialToNamed = TinyMappingFormat.DETECT.createReader(this.mappingsFile.toPath(),"official","hashed");
-            this.namedToOfficial = TinyMappingFormat.DETECT.createReader(this.mappingsFile.toPath(),"hashed","official");
         }catch (Exception e) {
             e.printStackTrace();
         }
