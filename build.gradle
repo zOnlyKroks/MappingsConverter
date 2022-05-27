@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group 'de.zonlykroks'
+version '1.0'
+
+repositories {
+    mavenCentral()
+    maven {url = 'https://maven.fabricmc.net/'}
+    maven {
+        name = 'Quilt'
+        url = 'https://maven.quiltmc.org/repository/release'
+    }
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    implementation 'commons-io:commons-io:2.11.0'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+
+    implementation 'net.fabricmc:lorenz-tiny:4.0.2'
+    implementation 'org.cadixdev:lorenz:0.5.7'
+    implementation 'net.fabricmc:mapping-io:0.2.1'
+    implementation 'it.unimi.dsi:fastutil:8.5.8'
+    implementation 'org.quiltmc:tiny-mappings-parser:0.3.0'
+}

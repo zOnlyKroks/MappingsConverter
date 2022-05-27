@@ -1,0 +1,14 @@
+
+E
+java:S3740I"/Provide the parametrized type for this generic.(ÞÂ˜Û
+E
+java:S3740Q"/Provide the parametrized type for this generic.(ÞÂ˜Û
+U	java:S8996";Do something with the "boolean" value returned by "delete".(Ÿ¶ÂÜúÿÿÿÿ
+i
+java:S40426"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(Ÿ¶ÂÜúÿÿÿÿ
+a
+java:S1128"FRemove this unused import 'net.fabricmc.lorenztiny.TinyMappingFormat'.(Üñ÷˜ýÿÿÿÿ
+X
+java:S1128"BRemove this unused import 'org.cadixdev.lorenz.io.MappingsReader'.(•¸¹®
+Q
+java:S1128";Remove this unused import 'java.net.MalformedURLException'.(ªËÞˆ
